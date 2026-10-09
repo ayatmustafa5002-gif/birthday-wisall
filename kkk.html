@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عيد ميلاد وصال 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Cairo', sans-serif;
+    color: white;
+    background: linear-gradient(135deg, #170b30, #52245f, #26134b);
+    overflow-x: hidden;
+}
+
+#stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    color: #ffe3fa;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; transform: scale(.7); }
+    to { opacity: 1; transform: scale(1.3); }
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.page.active {
+    display: flex;
+    animation: appear .7s ease;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+    padding: 35px 25px;
+    border: 1px solid #ffc8f477;
+    border-radius: 28px;
+    background: #ffffff10;
+    box-shadow: 0 0 50px #ff69b433;
+    backdrop-filter: blur(12px);
+}
+
+h1 {
+    font-size: clamp(3.2rem, 12vw, 5.5rem);
+    color: #ffb7e3;
+    margin: 15px 0;
+    text-shadow: 0 0 25px #ff64bd99;
+}
+
+h2 {
+    font-size: clamp(1.7rem, 6vw, 2.5rem);
+    color: #ffe0f5;
+    margin: 15px 0;
+}
+
+p {
+    font-size: 1.05rem;
+    line-height: 2.1;
+    margin: 15px 0;
+}
+
+.emoji {
+    display: block;
+    font-size: 5rem;
+    margin: 15px 0;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+button {
+    border: 1px solid #ffd5f2;
+    border-radius: 30px;
+    padding: 13px 25px;
+    margin: 10px 5px;
+    background: linear-gradient(135deg, #ff4fa8, #a855e8);
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+    touch-action: manipulation;
+    transition: filter .2s ease, transform .2s ease;
+}
+
+button:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+.age {
+    font-size: 4rem;
+    color: #ffd2f0;
+    text-shadow: 0 0 25px #ff5cbe;
+}
+
+.letter {
+    text-align: right;
+    line-height: 2.2;
+    font-size: 1.1rem;
+    white-space: pre-line;
+}
+
+.wishes {
+    margin: 20px 0;
+    text-align: right;
+    line-height: 2.3;
+}
+
+.wishes div {
+    padding: 7px 12px;
+    margin: 8px 0;
+    background: #ffffff0d;
+    border-radius: 12px;
+}
+
+.signature {
+    color: #ffb7e3;
+    font-weight: bold;
+    margin-top: 20px;
+    line-height: 2;
+}
+
+.floating {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    animation: rise 5s linear forwards;
+    z-index: 10;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 480px) {
+    .card { padding: 28px 18px; }
+    p { font-size: .98rem; }
+    .letter { font-size: 1rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<!-- الصفحة الأولى -->
+<section class="page active">
+    <div class="card">
+        <p>رسالة صغيرة، كُتبت بكل الحب ♡</p>
+        <span class="emoji">🎁</span>
+        <h2>هناك أشخاص يجعلون للحياة معنى أجمل...</h2>
+        <p>واليوم نحتفل بحكاية جميلة اسمها  ✨</p>
+        <h1>وصال</h1>
+        <p>أعددتُ لكِ شيئًا صغيرًا، أتمنى أن يصل إلى قلبكِ كما خرج من قلبي. 💌</p>
+        <button onclick="go(1)">هناك شيء لكِ ♡</button>
+    </div>
+</section>
+
+<!-- الصفحة الثانية -->
+<section class="page">
+    <div class="card">
+        <p>10 أكتوبر • يوم ميلادكِ ✨</p>
+        <span class="emoji">🎂</span>
+        <h2>كل عام وأنتِ بخير </h2>
+        <div class="age">22</div>
+        <p>
+            اثنان وعشرون عامًا من الحكايات والتجارب والأحلام،
+            وعام جديد يفتح لكِ أبوابه، حاملًا فرصًا أجمل
+            وأمنيات تستحق أن تتحقق.
+        </p>
+        <p>
+            أتمنى أن يكون عامكِ الجديد بدايةً لكل ما تتمنينه،
+            وأن تجدي فيه من الفرح ما يليق بقلبكِ،
+            ومن التوفيق ما يقودكِ إلى أبعد أحلامكِ. 💗
+        </p>
+        <button onclick="go(2)">تابعي  💗</button>
+    </div>
+</section>
+
+<!-- الصفحة الثالثة -->
+<section class="page">
+    <div class="card">
+        <span class="emoji">💌</span>
+        <h2>إلى وصال، عزيزة القلب</h2>
+        <div class="letter"> رسالة  ❤️
+
+في يوم ميلادكِ، أودّ أن أخبركِ أن بعض الأشخاص لا تُقاس مكانتهم بكثرة اللقاءات أو الكلمات، بل بالمكانة التي يحتفظون بها في القلب، وأنتِ واحدة من أولئك الأشخاص الذين أعتزّ بوجودهم في حياتي.
+
+أتمنى لكِ عامًا تتسع فيه أحلامكِ، وتزهر فيه مساعيكِ، وتجدين فيه ثمرة كل جهد بذلتِه، وفرحة كل انتظار طال.
+
+أسأل الله أن يفتح لكِ أبواب الخير من حيث لا تحتسبين، وأن يكتب لكِ من التوفيق أجمله، ومن الأقدار أطيبها، وأن يجعل القادم من عمركِ مليئًا بما يسعد قلبكِ ويطمئن روحكِ.</div>
+        <button onclick="go(3)">لديّ أمنيات أخرى لكِ ✨</button>
+    </div>
+</section>
+
+<!-- الصفحة الرابعة -->
+<section class="page">
+    <div class="card">
+        <span class="emoji">🌟</span>
+        <h2>أمنيات أتمناها لكِ من أعماق قلبي</h2>
+
+        <div class="wishes">
+            <div>🎓 أن أراكِ في أعلى المراتب، تحققين طموحاتكِ وتفخرين بكل ما وصلتِ إليه.</div>
+            <div>🌷 أن تجدي أبواب النجاح مفتوحة أمامكِ، وأن تقودكِ خطواتكِ إلى المكان الذي طالما حلمتِ به.</div>
+            <div>💗 أن تنعمي براحة البال، وصدق المحبة، وأيام تحمل لكِ أسبابًا كثيرة للابتسام.</div>
+            <div>🦋 أن تتحول أمنياتكِ التي تحتفظين بها في قلبكِ إلى واقع أجمل مما تخيلتِ.</div>
+        </div>
+
+        <p>
+            وأن يمنحكِ الله من الخير ما يليق بأمنياتكِ،
+            ومن القوة ما يعينكِ على بلوغها،
+            ومن السعادة ما يجعلكِ ممتنة لكل ما هو آتٍ.
+        </p>
+
+        <button onclick="go(4)">هناك كلمات أخرى أودّ أن تصلكِ 💞</button>
+    </div>
+</section>
+
+<!-- الصفحة الخامسة -->
+<section class="page">
+    <div class="card">
+        <span class="emoji">🫶🏽</span>
+        <h2>لأنكِ تستحقين كل جميل</h2>
+
+        <p>
+            أتمنى أن يأتي يوم تنظرين فيه إلى رحلتكِ بكل فخر،
+            وتتأملين المسافة التي قطعتِها، والأحلام التي أصبحت حقيقة،
+            فتدركين أن كل خطوة صبرتِ عليها كانت تستحق.
+        </p>
+
+        <p>
+            أتمنى أن أراكِ في المكانة التي تطمحين إليها،
+            وأن تصل إليكِ الأخبار التي انتظرتِها طويلًا،
+            وأن أشارككِ فرحة نجاحاتكِ واحدةً تلو الأخرى.
+        </p>
+
+        <p>
+            وأتمنى، مهما تغيّرت الأيام وتباعدت الطرق،
+            أن تبقى بيننا تلك المساحة الجميلة التي نفرح فيها
+            لبعضنا بصدق، ونحمل فيها الخير لبعضنا دون انتظار مقابل.
+        </p>
+
+        <p>
+            لا تجعلي صعوبة الطريق تُنسيكِ جمال ما تسعين إليه؛
+            فما زال أمامكِ الكثير من الفرص،
+            وربما يحمل لكِ الغد ما يفوق أجمل أحلامكِ. 💗
+        </p>
+
+        <button onclick="go(5)">إلى عام جديد يليق بكِ 🎉</button>
+    </div>
+</section>
+
+<!-- الصفحة السادسة والأخيرة -->
+<section class="page">
+    <div class="card">
+        <span class="emoji">🎉💖🎉</span>
+        <p>10 أكتوبر • بداية فصل جديد من حكايتكِ ✨</p>
+        <h2>عيد ميلاد سعيد</h2>
+        <h1>وصال</h1>
+
+        <p>
+            كل عام وأنتِ أقرب إلى أحلامكِ،
+            وأعلى مقامًا، وأكثر سعادةً ورضًا.
+        </p>
+
+        <p>
+            في عامكِ الثاني والعشرين، أتمنى لكِ بدايةً
+            تليق بكل ما تطمحين إليه، ومستقبلًا يحمل لكِ
+            من الإنجازات ما تفخرين به، ومن اللحظات الجميلة
+            ما يبقى في ذاكرتكِ طويلًا.
+        </p>
+
+        <p>
+            أسأل الله أن يحفظكِ، ويبارك في عمركِ،
+            ويكتب لكِ التوفيق في كل خطوة، وأن يريكِ أثر اجتهادكِ
+            في أجمل صورة، حتى تصلي إلى المكانة التي تحلمين بها
+            وتستحقينها.
+        </p>
+
+        <p><strong>أراكِ يومًا في أعلى المراتب، يا رب. ❤️</strong></p>
+
+        <div class="signature">
+            بكل الحب، من شخص يتمنى لكِ الخير والفرح من أعماق قلبه.
+            <br>
+            كل الأمنيات الجميلة لكِ يا وصال، في يوم ميلادكِ
+            وفي كل أيامكِ القادمة. 💗
+        </div>
+
+        <button onclick="celebrate()">لنحتفل مرة أخرى 🎊</button>
+        <button onclick="go(0)">أعيدي قراءة المفاجأة ↺</button>
+    </div>
+</section>
+
+<script>
+const pages = document.querySelectorAll('.page');
+let current = 0;
+
+function go(number) {
+    if (number < 0 || number >= pages.length) return;
+
+    pages[current].classList.remove('active');
+    current = number;
+    pages[current].classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+    if (number === 5) {
+        celebrate();
+    }
+}
+
+function celebrate() {
+    const emojis = ['💗', '💖', '✨', '🎉', '🌸', '💕', '⭐', '🎂'];
+
+    for (let i = 0; i < 35; i++) {
+        setTimeout(() => {
+            const item = document.createElement('span');
+            item.className = 'floating';
+            item.textContent = emojis[
+                Math.floor(Math.random() * emojis.length)
+            ];
+
+            item.style.left = Math.random() * 100 + 'vw';
+            item.style.fontSize = (20 + Math.random() * 25) + 'px';
+            item.style.animationDuration = (4 + Math.random() * 3) + 's';
+
+            document.body.appendChild(item);
+
+            setTimeout(() => item.remove(), 8000);
+        }, i * 100);
+    }
+}
+
+function createStars() {
+    const container = document.getElementById('stars');
+
+    for (let i = 0; i < 65; i++) {
+        const star = document.createElement('span');
+        star.className = 'star';
+        star.textContent = '✦';
+
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.fontSize = (8 + Math.random() * 12) + 'px';
+        star.style.animationDelay = Math.random() * 3 + 's';
+
+        container.appendChild(star);
+    }
+}
+
+createStars();
+</script>
+
+</body>
+</html>
